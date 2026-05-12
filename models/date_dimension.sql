@@ -5,7 +5,7 @@ DATE(TO_TIMESTAMP(STARTED_AT)) AS DATE_STARTED_AT,
 HOUR(TO_TIMESTAMP(STARTED_AT)) AS HOUR_STARTED_AT,
 {{day_type('STARTED_AT')}} AS DAT_TYPE,
 {{get_season('STARTED_AT')}} AS STARTED_OF_YEAR
- FROM {{ source('demo', 'bike') }}
+ FROM {{ ref('stg_bike') }}
  where STARTED_AT != 'started_at'
 )
 

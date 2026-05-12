@@ -1,4 +1,8 @@
-select
+WITH test as (
+    select
 *
 from {{ source('demo', 'bike') }}
-limit 10
+where RIDE_ID != 'bikeid'
+limit 10)
+
+select * from test
